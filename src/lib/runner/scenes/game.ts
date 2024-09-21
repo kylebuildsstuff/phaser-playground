@@ -1,12 +1,13 @@
-import CoinAudio from '$lib/assets/runner/assets/sounds/coin.mp3?url';
-import JumpAudio from '$lib/assets/runner/assets/sounds/jump.mp3?url';
-import DeadAudio from '$lib/assets/runner/assets/sounds/dead.mp3?url';
-import ThemeAudio from '$lib/assets/runner/assets/sounds/theme.mp3?url';
+import CoinAudio from '$lib/assets/runner/assets/sounds/coin.mp3';
+import JumpAudio from '$lib/assets/runner/assets/sounds/jump.mp3';
+import DeadAudio from '$lib/assets/runner/assets/sounds/dead.mp3';
+import ThemeAudio from '$lib/assets/runner/assets/sounds/theme.mp3';
 
 import CoinPng from '$lib/assets/runner/assets/images/coin.png';
 
 import ArcadeFont from '$lib/assets/runner/assets/fonts/arcade.png';
-import ArcadeXml from '$lib/assets/runner/assets/fonts/arcade.xml?raw';
+import ArcadeXml from '$lib/assets/runner/assets/fonts/arcade.xml?url';
+// import ArcadeJson from '$lib/assets/runner/assets/fonts/arcade.json?url';
 
 import Player from '../game-objects/player';
 import Generator from '../game-objects/generator';
@@ -38,6 +39,7 @@ export default class Game extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    // this.load.bitmapFont('arcade', ArcadeFont, ArcadeJson);
     this.load.bitmapFont('arcade', ArcadeFont, ArcadeXml);
     this.score = 0;
   }
