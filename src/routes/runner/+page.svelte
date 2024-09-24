@@ -2,7 +2,7 @@
   import Phaser from 'phaser';
   import { onMount } from 'svelte';
 
-  import Game from '$lib/runner/scenes/game';
+  import Game from '$lib/runner/scenes/game.svelte';
   import GameOver from '$lib/runner/scenes/gameover';
 
   const config = {

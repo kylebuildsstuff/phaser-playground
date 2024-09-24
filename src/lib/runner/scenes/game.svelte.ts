@@ -12,6 +12,8 @@ import ArcadeXml from '$lib/assets/runner/assets/fonts/arcade.xml?url';
 import Player from '../game-objects/player';
 import Generator from '../game-objects/generator';
 
+let what = $state(0);
+
 export default class Game extends Phaser.Scene {
   constructor() {
     super({ key: 'game' });
@@ -175,7 +177,10 @@ Here is where we can check if a key was pressed or the situation of the player t
 */
   update() {
     if (Phaser.Input.Keyboard.JustDown(this.SPACE)) {
+      console.log('what-1: ', what);
       this.jump();
+      what += 1;
+      console.log('what-2: ', what);
     } else if (this.player.body.blocked.down) {
       this.jumpTween?.stop();
       this.player.rotation = 0;
@@ -190,7 +195,11 @@ We also play a jumping sound and we add a tween to rotate the player while jumpi
 */
   jump() {
     if (!this.player.body.blocked.down) return;
-    this.player.body.setVelocityY(-300);
+
+    console.log('whatjump: ', what);
+    let jumpDistance = what > 1 ? -500 : -300;
+
+    this.player.body.setVelocityY(jumpDistance);
 
     this.playAudio('jump');
     this.jumpTween = this.tweens.add({
